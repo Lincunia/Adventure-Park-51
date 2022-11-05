@@ -1,6 +1,3 @@
-# INTENTANDO APRENDER SOBRE CÓMO CREAR PROYECTO
+# SEGMENTO DE FELIPE MEDINA
 
-Por cierto, trato de ser un buen lider y hago todo lo posible por mantener un margen descente en la creación de este
-proyecto, ya stoy revisando cómo cerar nuestro serfvidor y haceiendo los retos faltantes
-
-## Me aseguraré de que en la reunión del sprint este texto no se vea XD
+Esta parte es un sample de loopback 4 recreado lo que se tiene hasta ahora en los diagramas mostrados
