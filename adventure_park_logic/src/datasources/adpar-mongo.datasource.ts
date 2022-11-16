@@ -4,7 +4,7 @@ import {juggler} from '@loopback/repository';
 const config = {
   name: 'adpar_mongo',
   connector: 'mongodb',
-  url: '',
+  url: 'mongodb+srv://frere_gotlieb:u_Can_Win_4_g3nericdx@cluster-wprog.0dgnpm6.mongodb.net/AdventurePark?retryWrites=true&w=majority',
   host: '',
   port: 0,
   user: '',
