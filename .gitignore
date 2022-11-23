@@ -1,3 +1,3 @@
 # This part will remove the datasource API in case of possible rare things
-*/datasources/*
-*/node-modules/*
+**/datasources/
+**/node-modules/
