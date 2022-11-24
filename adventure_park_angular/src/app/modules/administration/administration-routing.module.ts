@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { CreatePersonComponent } from './people/create-person/create-person.component';
 import { SearchPersonComponent } from './people/search-person/search-person.component';
 import { UpdatePersonComponent } from './people/update-person/update-person.component';
-import { DeletePersonComponent } from './people/delete-person/delete-person.component';
 import { TechnicalHandbookComponent } from './handbooks/technical-handbook/technical-handbook.component';
 import { UserHandbookComponent } from './handbooks/user-handbook/user-handbook.component';
 
@@ -12,10 +11,6 @@ const routes: Routes = [
     {
 	path: 'edit-person',
 	component: UpdatePersonComponent,
-	children: [
-	    {path: 'update', component: UpdatePersonComponent},
-	    {path: 'delete', component: DeletePersonComponent},
-	]
     },
     { path: 'search-person', component: SearchPersonComponent},
     { path: 'technical-handbook', component: TechnicalHandbookComponent},

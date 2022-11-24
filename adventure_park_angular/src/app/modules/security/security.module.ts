@@ -6,13 +6,15 @@ import { SecurityRoutingModule } from './security-routing.module';
 import { IdentificationComponent } from './identification/identification.component';
 import { KeyChangeComponent } from './key-change/key-change.component';
 import { KeyRecoveryComponent } from './key-recovery/key-recovery.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
     declarations: [
 	IdentificationComponent,
 	KeyChangeComponent,
-	KeyRecoveryComponent
+	KeyRecoveryComponent,
+ LogoutComponent
     ],
     imports: [
 	CommonModule,

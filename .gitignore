@@ -1,3 +1,9 @@
-# This part will remove the datasource API in case of possible rare things
+# Para evitar la filtración de API Keys
+rt will remove the datasource API in case of possible rare things
 **/datasources/
+**/config/
+**variables.py
+# Para evitar subir contenido redundante
 **/node-modules/
+# Para eliminar toda la caché con python
+**/__pycache__/

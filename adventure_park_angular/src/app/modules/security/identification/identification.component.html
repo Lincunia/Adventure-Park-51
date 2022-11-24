@@ -1,6 +1,6 @@
 <div class="card-panel blue lighten-5">
     <h3> Identificación de usuarios </h3>
-    <form class="col s12" [formGroup]="fgValidator">
+    <form class="col s12" [formGroup]="fgValidator" (ngSubmit)="identifyUser()">
 	<div class="row">
 	    <div class="input-field col s12">
 		<i class="material-icons prefix"> email </i>

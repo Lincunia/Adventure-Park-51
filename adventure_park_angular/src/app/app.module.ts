@@ -7,20 +7,22 @@ import { HeaderComponent } from './template/header/header.component';
 import { FooterComponent } from './template/footer/footer.component';
 import { MainComponent } from './template/main/main.component';
 import { FailureComponent } from './template/failure/failure.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    MainComponent,
-    FailureComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+	AppComponent,
+	HeaderComponent,
+	FooterComponent,
+	MainComponent,
+	FailureComponent,
+    ],
+    imports: [
+	BrowserModule,
+	AppRoutingModule,
+	HttpClientModule 
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
