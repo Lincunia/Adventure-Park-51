@@ -11,17 +11,17 @@ export class CityRepository extends DefaultCrudRepository<
   CityRelations
 > {
 
-  public readonly departmentCity: BelongsToAccessor<Department, typeof City.prototype.id>;
+  public readonly department: BelongsToAccessor<Department, typeof City.prototype.id>;
 
-  public readonly cityPark: HasManyRepositoryFactory<Park, typeof City.prototype.id>;
+  public readonly parks: HasManyRepositoryFactory<Park, typeof City.prototype.id>;
 
   constructor(
     @inject('datasources.dataPark') dataSource: DataParkDataSource, @repository.getter('DepartmentRepository') protected departmentRepositoryGetter: Getter<DepartmentRepository>, @repository.getter('ParkRepository') protected parkRepositoryGetter: Getter<ParkRepository>,
   ) {
     super(City, dataSource);
-    this.cityPark = this.createHasManyRepositoryFactoryFor('cityPark', parkRepositoryGetter,);
-    this.registerInclusionResolver('cityPark', this.cityPark.inclusionResolver);
-    this.departmentCity = this.createBelongsToAccessorFor('departmentCity', departmentRepositoryGetter,);
-    this.registerInclusionResolver('departmentCity', this.departmentCity.inclusionResolver);
+    this.parks = this.createHasManyRepositoryFactoryFor('parks', parkRepositoryGetter,);
+    this.registerInclusionResolver('parks', this.parks.inclusionResolver);
+    this.department = this.createBelongsToAccessorFor('department', departmentRepositoryGetter,);
+    this.registerInclusionResolver('department', this.department.inclusionResolver);
   }
 }

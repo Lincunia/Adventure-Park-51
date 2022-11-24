@@ -8,31 +8,31 @@ import {
 } from '@loopback/rest';
 import {
   FoodStand,
-  Zone,
+  Park,
 } from '../models';
 import {FoodStandRepository} from '../repositories';
 
-export class FoodStandZoneController {
+export class FoodStandParkController {
   constructor(
     @repository(FoodStandRepository)
     public foodStandRepository: FoodStandRepository,
   ) { }
 
-  @get('/food-stands/{id}/zone', {
+  @get('/food-stands/{id}/park', {
     responses: {
       '200': {
-        description: 'Zone belonging to FoodStand',
+        description: 'Park belonging to FoodStand',
         content: {
           'application/json': {
-            schema: {type: 'array', items: getModelSchemaRef(Zone)},
+            schema: {type: 'array', items: getModelSchemaRef(Park)},
           },
         },
       },
     },
   })
-  async getZone(
+  async getPark(
     @param.path.string('id') id: typeof FoodStand.prototype.id,
-  ): Promise<Zone> {
-    return this.foodStandRepository.ZoneFoodStand(id);
+  ): Promise<Park> {
+    return this.foodStandRepository.park(id);
   }
 }

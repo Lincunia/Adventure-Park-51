@@ -33,6 +33,6 @@ export class CityDepartmentController {
   async getDepartment(
     @param.path.string('id') id: typeof City.prototype.id,
   ): Promise<Department> {
-    return this.cityRepository.departmentCity(id);
+    return this.cityRepository.department(id);
   }
 }

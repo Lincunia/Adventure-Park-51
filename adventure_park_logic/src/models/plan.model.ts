@@ -1,5 +1,6 @@
 import {Entity, model, property, referencesMany} from '@loopback/repository';
 import {Fairground} from './fairground.model';
+import {Park} from './park.model';
 
 @model()
 export class Plan extends Entity {
@@ -34,8 +35,11 @@ export class Plan extends Entity {
   })
   park: string;
 
-  @referencesMany(() => Fairground, {name: 'fairgroundPlan'})
-  plans: string[];
+  @referencesMany(() => Park)
+  parkIds: string[];
+
+  @referencesMany(() => Fairground)
+  fairgroundIds: string[];
 
   constructor(data?: Partial<Plan>) {
     super(data);
@@ -43,7 +47,7 @@ export class Plan extends Entity {
 }
 
 export interface PlanRelations {
-  // describe navigational properties here
+    // describe navigational properties here
 }
 
 export type PlanWithRelations = Plan & PlanRelations;

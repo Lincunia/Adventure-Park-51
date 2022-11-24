@@ -17,11 +17,11 @@ export class City extends Entity {
   })
   name: string;
 
-  @belongsTo(() => Department, {name: 'departmentCity'})
-  departmentName: string;
+  @belongsTo(() => Department)
+  departmentId: string;
 
-  @hasMany(() => Park, {keyTo: 'parks'})
-  cityPark: Park[];
+  @hasMany(() => Park)
+  parks: Park[];
 
   constructor(data?: Partial<City>) {
     super(data);
@@ -29,7 +29,7 @@ export class City extends Entity {
 }
 
 export interface CityRelations {
-  // describe navigational properties here
+    // describe navigational properties here
 }
 
 export type CityWithRelations = City & CityRelations;

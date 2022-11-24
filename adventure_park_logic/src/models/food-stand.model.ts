@@ -1,5 +1,6 @@
 import {Entity, model, property, belongsTo} from '@loopback/repository';
 import {Zone} from './zone.model';
+import {Park} from './park.model';
 
 @model()
 export class FoodStand extends Entity {
@@ -28,8 +29,8 @@ export class FoodStand extends Entity {
   })
   menu: any;
 
-  @belongsTo(() => Zone, {name: 'ZoneFoodStand'})
-  FoodStands: string;
+  @belongsTo(() => Park)
+  parkId: string;
 
   constructor(data?: Partial<FoodStand>) {
     super(data);
@@ -37,7 +38,7 @@ export class FoodStand extends Entity {
 }
 
 export interface FoodStandRelations {
-  // describe navigational properties here
+    // describe navigational properties here
 }
 
 export type FoodStandWithRelations = FoodStand & FoodStandRelations;

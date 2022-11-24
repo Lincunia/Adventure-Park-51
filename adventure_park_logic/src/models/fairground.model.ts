@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, belongsTo} from '@loopback/repository';
+import {Zone} from './zone.model';
 
 @model()
 export class Fairground extends Entity {
@@ -39,6 +40,8 @@ export class Fairground extends Entity {
   })
   description: string;
 
+  @belongsTo(() => Zone)
+  zoneId: string;
 
   constructor(data?: Partial<Fairground>) {
     super(data);
@@ -46,7 +49,7 @@ export class Fairground extends Entity {
 }
 
 export interface FairgroundRelations {
-  // describe navigational properties here
+    // describe navigational properties here
 }
 
 export type FairgroundWithRelations = Fairground & FairgroundRelations;

@@ -33,6 +33,6 @@ export class ZoneParkController {
   async getPark(
     @param.path.string('id') id: typeof Zone.prototype.id,
   ): Promise<Park> {
-    return this.zoneRepository.parkZone(id);
+    return this.zoneRepository.park(id);
   }
 }

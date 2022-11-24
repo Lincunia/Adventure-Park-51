@@ -1,1 +1,19 @@
-<p>header works!</p>
+<nav>
+    <div class="nav-wrapper">
+	<a routerLink="/inicio" class="brand-logo">Principal</a>
+	<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+	<ul class="right hide-on-med-and-down">
+	    <li><a routerLink="/plans/reservar">Reservar planes</a></li>
+	    <li><a routerLink="/administration/user-handbook">Manual de uso</a></li>
+	    <li><a routerLink="/security/identificar">Iniciar sesión</a></li>
+	    <li><a routerLink="/administration/create-person">Registrarse</a></li>
+	</ul>
+    </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+    <li><a routerLink="sass.html">Reservar planes</a></li>
+    <li><a routerLink="/administration/user-handbook">Manual de uso</a></li>
+    <li><a routerLink="/security/identificar">Iniciar sesión</a></li>
+    <li><a routerLink="/administration/create-person">Registrarse</a></li>
+</ul>

@@ -5,3 +5,4 @@ export * from './food-stand.repository';
 export * from './park.repository';
 export * from './plan.repository';
 export * from './zone.repository';
+export * from './user.repository';

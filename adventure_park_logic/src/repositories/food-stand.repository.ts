@@ -1,8 +1,8 @@
 import {inject, Getter} from '@loopback/core';
 import {DefaultCrudRepository, repository, BelongsToAccessor} from '@loopback/repository';
 import {DataParkDataSource} from '../datasources';
-import {FoodStand, FoodStandRelations, Zone} from '../models';
-import {ZoneRepository} from './zone.repository';
+import {FoodStand, FoodStandRelations, Park} from '../models';
+import {ParkRepository} from './park.repository';
 
 export class FoodStandRepository extends DefaultCrudRepository<
   FoodStand,
@@ -10,13 +10,13 @@ export class FoodStandRepository extends DefaultCrudRepository<
   FoodStandRelations
 > {
 
-  public readonly ZoneFoodStand: BelongsToAccessor<Zone, typeof FoodStand.prototype.id>;
+  public readonly park: BelongsToAccessor<Park, typeof FoodStand.prototype.id>;
 
   constructor(
-    @inject('datasources.dataPark') dataSource: DataParkDataSource, @repository.getter('ZoneRepository') protected zoneRepositoryGetter: Getter<ZoneRepository>,
+    @inject('datasources.dataPark') dataSource: DataParkDataSource, @repository.getter('ParkRepository') protected parkRepositoryGetter: Getter<ParkRepository>,
   ) {
     super(FoodStand, dataSource);
-    this.ZoneFoodStand = this.createBelongsToAccessorFor('ZoneFoodStand', zoneRepositoryGetter,);
-    this.registerInclusionResolver('ZoneFoodStand', this.ZoneFoodStand.inclusionResolver);
+    this.park = this.createBelongsToAccessorFor('park', parkRepositoryGetter,);
+    this.registerInclusionResolver('park', this.park.inclusionResolver);
   }
 }

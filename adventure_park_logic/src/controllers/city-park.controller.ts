@@ -42,7 +42,7 @@ export class CityParkController {
     @param.path.string('id') id: string,
     @param.query.object('filter') filter?: Filter<Park>,
   ): Promise<Park[]> {
-    return this.cityRepository.cityPark(id).find(filter);
+    return this.cityRepository.parks(id).find(filter);
   }
 
   @post('/cities/{id}/parks', {
@@ -61,13 +61,13 @@ export class CityParkController {
           schema: getModelSchemaRef(Park, {
             title: 'NewParkInCity',
             exclude: ['id'],
-            optional: ['parks']
+            optional: ['cityId']
           }),
         },
       },
     }) park: Omit<Park, 'id'>,
   ): Promise<Park> {
-    return this.cityRepository.cityPark(id).create(park);
+    return this.cityRepository.parks(id).create(park);
   }
 
   @patch('/cities/{id}/parks', {
@@ -90,7 +90,7 @@ export class CityParkController {
     park: Partial<Park>,
     @param.query.object('where', getWhereSchemaFor(Park)) where?: Where<Park>,
   ): Promise<Count> {
-    return this.cityRepository.cityPark(id).patch(park, where);
+    return this.cityRepository.parks(id).patch(park, where);
   }
 
   @del('/cities/{id}/parks', {
@@ -105,6 +105,6 @@ export class CityParkController {
     @param.path.string('id') id: string,
     @param.query.object('where', getWhereSchemaFor(Park)) where?: Where<Park>,
   ): Promise<Count> {
-    return this.cityRepository.cityPark(id).delete(where);
+    return this.cityRepository.parks(id).delete(where);
   }
 }
