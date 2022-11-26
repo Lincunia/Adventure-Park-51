@@ -1,0 +1,16 @@
+<a class="btn waves-effect waves-light" routerLink="/normal/main">Volver</a>
+<div class="card-panel amber lighten-5">
+    <h3> Registro de departamentos </h3>
+    <form class="col s12" [formGroup]="fgValidator" (ngSubmit)="editDepartment()">
+	<input type="hidden" formControlName="id">
+	<div class="row">
+	    <div class="input-field col s12">
+		<input formControlName='name' id="names" type="text" class="validate">
+		<label for="names" class="active">Nombre</label>
+	    </div>
+	</div>
+	<button [disabled]="!fgValidator.valid" class="btn waves-effect waves-light" type="submit" name="action">Registrarlo
+	    <i class="material-icons right">send</i>
+	</button>
+    </form>
+</div>

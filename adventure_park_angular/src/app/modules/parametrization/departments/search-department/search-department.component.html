@@ -1,0 +1,19 @@
+<a class="btn waves-effect waves-light" routerLink="/normal/main">Volver</a>
+<a class="btn waves-effect waves-light" routerLink="/normal/add-department">Crear departamento</a>
+<table>
+    <thead>
+	<tr>
+	    <th> Identificación </th>
+	    <th> Nombre </th>
+	</tr>
+    </thead>
+    <tbody>
+	<tr *ngFor="let d of listD">
+	    <td> {{d.id}} </td>
+	    <td> {{d.name}} </td>
+	    <td>
+		<a class="btn waves-effect waves-light indigo" routerLink="/normal/update-department/{{d.id}}">Editar departamento</a>
+	    </td>
+	</tr>
+    </tbody>
+</table>

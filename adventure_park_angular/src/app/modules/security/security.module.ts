@@ -3,18 +3,20 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SecurityRoutingModule } from './security-routing.module';
-import { IdentificationComponent } from './identification/identification.component';
-import { KeyChangeComponent } from './key-change/key-change.component';
 import { KeyRecoveryComponent } from './key-recovery/key-recovery.component';
 import { LogoutComponent } from './logout/logout.component';
+import { AdminComponent } from './identification/admin/admin.component';
+import { CommonComponent } from './identification/common/common.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
     declarations: [
-	IdentificationComponent,
-	KeyChangeComponent,
 	KeyRecoveryComponent,
- LogoutComponent
+	LogoutComponent,
+	AdminComponent,
+	CommonComponent,
+	RegisterComponent
     ],
     imports: [
 	CommonModule,

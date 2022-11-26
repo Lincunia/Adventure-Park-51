@@ -4,37 +4,37 @@ import {Park} from './park.model';
 
 @model()
 export class FoodStand extends Entity {
-  @property({
-    type: 'string',
-    id: true,
-    generated: true,
-  })
-  id?: string;
+    @property({
+	type: 'string',
+	id: true,
+	generated: true,
+    })
+    id?: string;
 
-  @property({
-    type: 'string',
-    required: true,
-  })
-  name: string;
+    @property({
+	type: 'string',
+	required: true,
+    })
+    name: string;
 
-  @property({
-    type: 'string',
-    required: true,
-  })
-  img: string;
+    @property({
+	type: 'string',
+	required: true,
+    })
+    img: string;
 
-  @property({
-    type: 'any',
-    required: true,
-  })
-  menu: any;
+    @property({
+	type: 'any',
+	required: true,
+    })
+    menu: any;
 
-  @belongsTo(() => Park)
-  parkId: string;
+    @belongsTo(() => Park)
+    parkId: string;
 
-  constructor(data?: Partial<FoodStand>) {
-    super(data);
-  }
+    constructor(data?: Partial<FoodStand>) {
+	super(data);
+    }
 }
 
 export interface FoodStandRelations {

@@ -3,19 +3,19 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './template/header/header.component';
-import { FooterComponent } from './template/footer/footer.component';
-import { MainComponent } from './template/main/main.component';
-import { FailureComponent } from './template/failure/failure.component';
+import { MainComponent } from './templates/main/main.component';
+import { FooterComponent } from './templates/footer/footer.component';
+import { NavigatorComponent } from './templates/navigator/navigator.component';
+import { ErrorComponent } from './templates/error/error.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
 	AppComponent,
-	HeaderComponent,
-	FooterComponent,
 	MainComponent,
-	FailureComponent,
+	FooterComponent,
+	NavigatorComponent,
+	ErrorComponent
     ],
     imports: [
 	BrowserModule,

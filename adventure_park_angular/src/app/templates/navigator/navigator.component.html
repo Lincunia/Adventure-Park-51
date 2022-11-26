@@ -1,0 +1,26 @@
+<nav>
+    <div class="nav-wrapper">
+	<a routerLink="/inicio" class="brand-logo">Principal</a>
+	<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+	<ul class="right hide-on-med-and-down">
+	    <!--
+		<li *ngIf="isIn"><a routerLink="/plans/principal">Reservar planes</a></li>
+		<li *ngIf="!isIn"><a routerLink="/security/logout">Cerrar sesión</a></li>
+		<li *ngIf="!isIn"><a routerLink="/administration/edit-person">Editar usuario</a></li>
+	    -->
+	    <li><a routerLink="/documentation/traditional">Manual de uso</a></li>
+	    <li *ngIf="isIn"><a routerLink="/documentation/technical">Manual técnico</a></li>
+	    <li *ngIf="isIn"><a routerLink="/normal/main">Medio de creación</a></li>
+	    <li *ngIf="!isIn"><a routerLink="/security/identify-common">Iniciar sesión</a></li>
+	    <li *ngIf="isIn"><a routerLink="/security/logout">Cerrar sesión</a></li>
+	    <li *ngIf="!isIn"><a routerLink="/security/new-one">Registrarse</a></li>
+	</ul>
+    </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+    <li *ngIf="isIn"><a routerLink="/normal/main">Medio de creación</a></li>
+    <li *ngIf="isIn"><a routerLink="/security/identify-common">Iniciar sesión</a></li>
+    <li *ngIf="isIn"><a routerLink="/security/logout">Cerrar sesión</a></li>
+    <li *ngIf="!isIn"><a routerLink="/administration/create-person">Registrarse</a></li>
+</ul>

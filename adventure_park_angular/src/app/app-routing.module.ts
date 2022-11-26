@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { MainComponent } from './template/main/main.component';
-import { FailureComponent } from './template/failure/failure.component';
+import { MainComponent } from './templates/main/main.component';
+import { ErrorComponent } from './templates/error/error.component';
 
 const routes: Routes = [
     {
@@ -19,21 +19,21 @@ const routes: Routes = [
 	loadChildren: ()=>import('./modules/security/security.module').then(x=>x.SecurityModule)
     },
     {
-	path: 'administration',
-	loadChildren: ()=>import('./modules/administration/administration.module').then(x=>x.AdministrationModule)
+	path: 'normal',
+	loadChildren: ()=>import('./modules/parametrization/parametrization.module').then(x=>x.ParametrizationModule)
     },
     {
-	path: 'plans',
-	loadChildren: ()=>import('./modules/plans/plans.module').then(x=>x.PlansModule)
+	path: 'documentation',
+	loadChildren: ()=>import('./modules/documentation/documentation.module').then(x=>x.DocumentationModule)
     },
     {
 	path: '**',
-	component: FailureComponent
+	component: ErrorComponent 
     }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }

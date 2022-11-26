@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {
+    HttpClient,
+    HttpHeaders
+} from '@angular/common/http';
 import { IdentifyModel } from '../models/identify.model';
 import {
     Observable,
@@ -49,5 +52,11 @@ export class SecurityService {
     }
     isTheUserIn(){
 	return localStorage.getItem('dataSession');
+    }
+    getToken(){
+	let data=localStorage.getItem('dataSession');
+	if(!data) return '';
+	let d=JSON.parse(data);
+	return d.tk;
     }
 }

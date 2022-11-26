@@ -4,46 +4,64 @@ import {Park} from './park.model';
 
 @model()
 export class Plan extends Entity {
-  @property({
-    type: 'string',
-    id: true,
-    generated: true,
-  })
-  id?: string;
+    @property({
+	type: 'string',
+	id: true,
+	generated: true,
+    })
+    id?: string;
 
-  @property({
-    type: 'string',
-    required: true,
-  })
-  name: string;
+    @property({
+	type: 'string',
+	required: true,
+    })
+    name: string;
 
-  @property({
-    type: 'string',
-    required: true,
-  })
-  color: string;
+    @property({
+	type: 'number',
+	required: true,
+    })
+    amount_of_entries: number;
 
-  @property({
-    type: 'number',
-    required: true,
-  })
-  value: number;
+    @property({
+	type: 'string',
+	required: true,
+    })
+    color: string;
 
-  @property({
-    type: 'string',
-    required: true,
-  })
-  park: string;
+    @property({
+	type: 'number',
+	required: true,
+    })
+    value: number;
 
-  @referencesMany(() => Park)
-  parkIds: string[];
+    @property({
+	type: 'string',
+	required: true,
+    })
+    park: string;
+    // CREDIT CARD
+    @property({
+	type: 'number',
+	required: true,
+    })
+    pin_card: number;
 
-  @referencesMany(() => Fairground)
-  fairgroundIds: string[];
+    @property({
+	type: 'string',
+	required: true,
+    })
+    type_card: string;
 
-  constructor(data?: Partial<Plan>) {
-    super(data);
-  }
+    @referencesMany(() => Park)
+    parkIds: string[];
+
+    @referencesMany(() => Fairground)
+    fairgroundIds: string[];
+
+    constructor(data?: Partial<Plan>) {
+	super(data);
+    }
 }
 
 export interface PlanRelations {
