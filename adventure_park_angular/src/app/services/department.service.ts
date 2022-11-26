@@ -42,7 +42,7 @@ export class DepartmentService {
      * DO NOT USE IT
      *
 
-    deleketeD(id: string): Observable<any>{
+    deleteD(id: string): Observable<any>{
 	return this.http.delete(`${this.basicUrl}/departments/${id}`,
 					       {
 						   headers: new HttpHeaders({'Authorization': `Bearer ${this.token}`})

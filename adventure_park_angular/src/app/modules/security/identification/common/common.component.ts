@@ -18,10 +18,6 @@ export class CommonComponent {
     constructor(private fb: FormBuilder,
 	       private secService: SecurityService,
 	       private router: Router){ }
-    ngOnInit(): void{
-	this.fgValidator.controls['user'].setValue('medinagofe@gmail.com');
-	this.fgValidator.controls['password'].setValue('35LcIrBM');
-    }
     identifyUser(){
 	let user=this.fgValidator.controls['user'].value,
 	    password=this.fgValidator.controls['password'].value;
@@ -31,6 +27,5 @@ export class CommonComponent {
 		this.secService.saveSession(data);
 		this.router.navigate(['/normal/main'])
 	    }, (error: any)=>{alert('Datos inválidos')});
-	console.log(cipheredKey);
     }
 }

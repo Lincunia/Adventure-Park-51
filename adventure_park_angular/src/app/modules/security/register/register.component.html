@@ -1,37 +1,38 @@
 <div class="card-panel amber lighten-5">
     <h3> Registro de usuarios </h3>
-    <form class="col s12">
+    <form class="col s12" [formGroup]="fgValidator" (ngSubmit)="createUser()">
 	<div class="row">
 	    <div class="input-field col s6">
-		<input id="names" type="text" class="validate">
+		<input formControlName="names" id="names" type="text" class="validate">
 		<label for="names">Nombres</label>
 	    </div>
 	    <div class="input-field col s6">
-		<input id="surnames" type="text" class="validate">
+		<input formControlName="surnames" id="surnames" type="text" class="validate">
 		<label for="surnames">Apellidos</label>
 	    </div>
 	</div>
 	<div class="row">
 	    <div class="input-field col s6">
 		<i class="material-icons prefix">email</i>
-		<input id="email" type="text" class="validate">
+		<input formControlName="email" id="email" type="text" class="validate">
 		<label for="email">Corro electrónico</label>
 	    </div>
 	    <div class="input-field col s6">
 		<i class="material-icons prefix">phone</i>
-		<input id="phone" type="number" class="validate">
+		<input formControlName="phone" id="phone" type="number" class="validate">
 		<label for="phone">Teléfono</label>
 	    </div>
 	</div>
 	<div class="row">
 	    <div class="input-field col s6">
 		<label for="charge" class="active">Tipo de cargo</label>
-		<select id="charge" class="browser-default">
+		<select formControlName="charge" id="charge" class="browser-default">
 		    <option disabled value="">Escoja</option>
 		    <option> Seguridad </option>
 		    <option> Mantenimiento </option>
 		    <option> Logística </option>
 		    <option> Caja administradora </option>
+		    <option> Ninguno </option>
 		</select>
 	    </div>
 	</div>

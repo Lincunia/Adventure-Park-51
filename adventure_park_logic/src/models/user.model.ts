@@ -38,6 +38,11 @@ export class User extends Entity {
     })
     phone: number;
 
+    @property({
+	type: 'string',
+	required: true,
+    })
+    charge: string;
 
     constructor(data?: Partial<User>) {
 	super(data);
