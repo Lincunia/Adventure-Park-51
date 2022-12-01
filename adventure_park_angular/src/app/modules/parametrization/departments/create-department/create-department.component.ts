@@ -23,9 +23,9 @@ export class CreateDepartmentComponent {
 	d.name=this.fgValidator.controls['name'].value;
 	this.depService.createD(d).subscribe(
 	    (data: DepartmentModel)=>{
-		this.router.navigate(['/normal/main'])
+		this.router.navigate(['/admin/main'])
 	    },
-	    (error: any)=>{ alert('Was macht das schon') }
+	    (error: any)=>{ alert('Error al insertar el departamento') }
 	);
     }
 }

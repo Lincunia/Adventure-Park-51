@@ -20,9 +20,19 @@ export class AuthenticationService {
     cipherKey(key: string){
 	return cipher.SHA256(key).toString();
     }
+    identifyAdm(user: string, key: string, charge: string, phone: any){
+	try{
+	    let consumer=this.perRepository.findOne({where: {email: user, key: key, charge: charge, phone: phone}});
+	    if(consumer) return consumer;
+	    return false;
+	}
+	catch{
+	    return false;
+	}
+    }
     identifyPer(user: string, key: string){
 	try{
-	    let consumer=this.perRepository.findOne({where: {email: user, key: key}});
+	    let consumer=this.perRepository.findOne({where: {email: user, key: key, charge: 'Ninguno'}});
 	    if(consumer) return consumer;
 	    return false;
 	}

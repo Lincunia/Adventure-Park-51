@@ -41,7 +41,7 @@ export class UpdateDepartmentComponent {
 	    (data: DepartmentModel)=>{
 		this.router.navigate(['/normal/main'])
 	    },
-	    (error: any)=>{ alert('Was macht das schon') }
+	    (error: any)=>{ alert('Fallo al editar') }
 	);
     }
 }

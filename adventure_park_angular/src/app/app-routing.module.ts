@@ -19,12 +19,20 @@ const routes: Routes = [
 	loadChildren: ()=>import('./modules/security/security.module').then(x=>x.SecurityModule)
     },
     {
-	path: 'normal',
+	path: 'admin',
 	loadChildren: ()=>import('./modules/parametrization/parametrization.module').then(x=>x.ParametrizationModule)
+    },
+    {
+	path: 'normal',
+	loadChildren: ()=>import('./modules/sales/sales.module').then(x=>x.SalesModule)
     },
     {
 	path: 'documentation',
 	loadChildren: ()=>import('./modules/documentation/documentation.module').then(x=>x.DocumentationModule)
+    },
+    {
+	path: 'reporte',
+	loadChildren: ()=>import('./modules/reports/reports.module').then(x=>x.ReportsModule)
     },
     {
 	path: '**',

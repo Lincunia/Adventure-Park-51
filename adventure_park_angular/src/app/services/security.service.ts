@@ -3,7 +3,10 @@ import {
     HttpClient,
     HttpHeaders
 } from '@angular/common/http';
-import { IdentifyModel } from '../models/identify.model';
+import {
+    IdentifyUModel,
+    IdentifyAModel
+} from '../models';
 import {
     Observable,
     BehaviorSubject
@@ -15,7 +18,8 @@ import {
 export class SecurityService {
     url='http://localhost:3000';
 
-    dataUserInSession=new BehaviorSubject<IdentifyModel>(new IdentifyModel());
+    dataUserInSession=new BehaviorSubject<IdentifyUModel>(new IdentifyUModel());
+    dataAdminInSession=new BehaviorSubject<IdentifyAModel>(new IdentifyAModel());
 
     constructor(private http: HttpClient) {
 	this.checkCurrentSession();
@@ -23,23 +27,39 @@ export class SecurityService {
 
     checkCurrentSession(){
 	let data=this.getInfoSession();
-	this.refreshDataSession(data)
+	this.refreshDataSession(data, data)
     }
-    refreshDataSession(data: IdentifyModel){
-	if(data) this.dataUserInSession.next(data);
+    refreshDataSession(dataA: any, dataU: any){
+	if(dataA) this.dataAdminInSession.next(dataA);
+	if(dataU) this.dataUserInSession.next(dataU);
     }
+    // ADMIN
+    getDataAdminInSession(){
+	return this.dataAdminInSession.asObservable();
+    }
+    identifyAdmin(user: string, key: string, charge: string, phone: number): Observable<IdentifyAModel>{
+	return this.http.post<IdentifyAModel>(`${this.url}/identifyAdmin`,
+			      {user: user, key: key, charge: charge, phone: phone},
+			      { headers: new HttpHeaders( {}) });
+    }
+    saveSessionA(data: IdentifyAModel){
+	data.isIdentified=true;
+	localStorage.setItem('dataSession', JSON.stringify(data));
+	this.refreshDataSession(data, null);
+    }
+    // USER 
     getDataUserInSession(){
 	return this.dataUserInSession.asObservable();
     }
-    identifySomeone(user: string, key: string): Observable<IdentifyModel>{
-	return this.http.post<IdentifyModel>(`${this.url}/identifySomeone`,
+    identifySomeone(user: string, key: string): Observable<IdentifyUModel>{
+	return this.http.post<IdentifyUModel>(`${this.url}/identifySomeone`,
 			      {user: user, key: key},
 			      { headers: new HttpHeaders( {}) });
     }
-    saveSession(data: IdentifyModel){
+    saveSessionU(data: IdentifyUModel){
 	data.isIdentified=true;
 	localStorage.setItem('dataSession', JSON.stringify(data));
-	this.refreshDataSession(data);
+	this.refreshDataSession(null, data);
     }
     getInfoSession(){
 	let dataString=localStorage.getItem('dataSession');
@@ -48,7 +68,7 @@ export class SecurityService {
     }
     deleteInfoSession(){
 	localStorage.removeItem('dataSession');
-	this.refreshDataSession(new IdentifyModel());
+	this.refreshDataSession(new IdentifyAModel(), new IdentifyUModel());
     }
     isTheUserIn(){
 	return localStorage.getItem('dataSession');

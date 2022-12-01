@@ -19,6 +19,9 @@ import {
 } from '@loopback/rest';
 import {Park} from '../models';
 import {ParkRepository} from '../repositories';
+import {authenticate} from '@loopback/authentication';
+
+@authenticate('admin') //Protege según si eres administrador 
 
 export class ParkController {
   constructor(

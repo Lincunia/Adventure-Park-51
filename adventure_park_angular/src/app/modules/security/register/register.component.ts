@@ -37,7 +37,12 @@ export class RegisterComponent {
 	u.email=this.fgValidator.controls['email'].value;
 	u.phone=this.fgValidator.controls['phone'].value;
 	u.charge=this.fgValidator.controls['charge'].value;
-	console.log(u);
+	this.uService.createU(u).subscribe(
+	    (data: UserModel)=>{
+		this.router.navigate(['/inicio'])
+	    },
+	    (error: any)=>{ alert('Inserción de datos fallida') }
+	);
 	/*
 	   this.secService.identifySomeone(user, cipheredKey).subscribe(
 	   (data: any)=>{
@@ -45,12 +50,6 @@ export class RegisterComponent {
 	   this.router.navigate(['/normal/main'])
 	   }, (error: any)=>{alert('Datos inválidos')});
 
-	   */
-	this.uService.createU(u).subscribe(
-	    (data: UserModel)=>{
-		this.router.navigate(['/inicio'])
-	    },
-	    (error: any)=>{ alert('Inserción de datos fallida') }
-	);
+*/
     }
 }

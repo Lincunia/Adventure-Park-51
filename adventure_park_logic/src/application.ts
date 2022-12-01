@@ -14,7 +14,10 @@ import {
     registerAuthenticationStrategy,
     AuthenticationComponent
 } from '@loopback/authentication';
-import {adminStrategy} from './strategies/admin.strategy';
+import {
+    adminStrategy,
+    commonStrategy
+} from './strategies';
 
 export {ApplicationConfig};
 
@@ -46,6 +49,8 @@ export class AdventureParkLogicApplication extends BootMixin(
 		nested: true,
 	    },
 	};
+	registerAuthenticationStrategy(this, commonStrategy);
+	this.component(AuthenticationComponent);
 	registerAuthenticationStrategy(this, adminStrategy);
 	this.component(AuthenticationComponent);
     }

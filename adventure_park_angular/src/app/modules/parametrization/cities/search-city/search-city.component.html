@@ -1,1 +1,21 @@
-<p>search-city works!</p>
+<a class="btn waves-effect waves-light" routerLink="/admin/main">Volver</a>
+<a class="btn waves-effect waves-light" routerLink="/admin/add-city">Crear departamento</a>
+<table>
+    <thead>
+	<tr>
+	    <th> Identificación </th>
+	    <th> Nombre </th>
+	    <th> Nombre del departamento</th>
+	</tr>
+    </thead>
+    <tbody>
+	<tr *ngFor="let d of listC">
+	    <td> {{d.id}} </td>
+	    <td> {{d.name}} </td>
+	    <td> {{d.departmentId}} </td>
+	    <td>
+		<a class="btn waves-effect waves-light indigo" routerLink="/admin/update-city/{{d.id}}">Editar ciudad</a>
+	    </td>
+	</tr>
+    </tbody>
+</table>

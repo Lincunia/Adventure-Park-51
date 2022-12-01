@@ -25,17 +25,17 @@ const routes: Routes = [
 
     {path: 'add-city', component: CreateCityComponent},
     {path: 'search-city', component: SearchCityComponent},
-    {path: 'update-city', component: UpdateCityComponent},
+    {path: 'update-city/:id', component: UpdateCityComponent},
 
     {path: 'add-park', component: CreateParkComponent},
     {path: 'search-park', component: SearchParkComponent},
-    {path: 'update-park', component: UpdateParkComponent},
-    {path: 'delete-park', component: DeleteParkComponent},
+    {path: 'update-park/:id', component: UpdateParkComponent},
+    {path: 'delete-park/:id', component: DeleteParkComponent},
 
     {path: 'add-zone', component: CreateZoneComponent},
     {path: 'search-zone', component: SearchZoneComponent},
-    {path: 'update-zone', component: UpdateZoneComponent},
-    {path: 'delete-zone', component: DeleteZoneComponent}
+    {path: 'update-zone/:id', component: UpdateZoneComponent},
+    {path: 'delete-zone/:id', component: DeleteZoneComponent}
 ];
 
 @NgModule({

@@ -1,1 +1,67 @@
-<p>create-park works!</p>
+<a class="btn waves-effect waves-light" routerLink="/admin/main">Volver</a>
+<div class="card-panel amber lighten-5">
+    <h3> Registro de parques </h3>
+    <form class="col s12" [formGroup]="fgValidator" (ngSubmit)="savePark()">
+	<div class="row">
+	    <div class="input-field col s12">
+		<input formControlName="name" id="name" type="text" class="validate">
+		<label for="name">Nombre</label>
+	    </div>
+	</div>
+	<div class="row">
+	    <div class="input-field col s12">
+		<input formControlName="dir" id="direction" type="text" class="validate">
+		<label for="direction">Dirección del lugar</label>
+	    </div>
+	</div>
+	<div class="row">
+	    <div class="input-field col s12">
+		<input formControlname="email" id="email" type="email" class="validate">
+		<label for="email">Correo electrónico</label>
+	    </div>
+	</div>
+	<!--
+	<div class="row">
+	    <div class="input-field col s12">
+		<input formControlname="aGuests" id="aGuests" type="number" class="validate">
+		<label for="aGuests">Cantidad de visitantes</label>
+	    </div>
+	</div>
+	<div class="row">
+	    <div class="input-field col s6">
+		<i class="material-icons prefix">insert_link</i>
+		<input formControlname="imgLogo" id="imgLogo" type="url" class="validate">
+		<label for="imgLogo">Imágen del logo (A modo de enlace)</label>
+	    </div>
+	</div>
+	<div class="row">
+	    <div class="input-field col s6">
+		<i class="material-icons prefix">insert_link</i>
+		<input formControlName="imgMap" id="imgMap" type="url" class="validate">
+		<label for="imgMap">Imágen del mapa (A modo de enlace)</label>
+	    </div>
+	</div>
+	<div class="row">
+	    <div class="input-field col s12">
+		<textarea formControlName="motto" id="motto" class="materialize-textarea validate"></textarea>
+		<label for="motto">Lema</label>
+	    </div>
+	</div>
+	<div class="row">
+	    <div class="input-field col s12">
+		<textarea formControlName="description" id="description" class="materialize-textarea validate"></textarea>
+		<label for="description">Descripción</label>
+	    </div>
+	</div>
+	<div class="row">
+	    <div class="input-field col s12">
+		<input formControlName="cityName" id="cityName" type="text" class="validate">
+		<label for="cityName">Nombre de la ciudad</label>
+	    </div>
+	</div>
+	-->
+	<button [disabled]="!fgValidator.valid" class="btn waves-effect waves-light" type="submit" name="action">Registrarlo
+	    <i class="material-icons right">send</i>
+	</button>
+    </form>
+</div>

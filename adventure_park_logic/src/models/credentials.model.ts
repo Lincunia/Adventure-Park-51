@@ -14,6 +14,17 @@ export class Credentials extends Model {
   })
   key: string;
 
+  @property({
+    type: 'string',
+    required: true,
+  })
+  charge: string;
+
+  @property({
+    type: 'number',
+    required: true,
+  })
+  phone: number;
 
   constructor(data?: Partial<Credentials>) {
     super(data);

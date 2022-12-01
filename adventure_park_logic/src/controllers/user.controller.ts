@@ -20,7 +20,8 @@ import {
 } from '@loopback/rest';
 import {
     User,
-    Credentials
+    Credentials,
+    Cred
 } from '../models';
 import {UserRepository} from '../repositories';
 import {Keys} from '../config/keys';
@@ -38,6 +39,32 @@ export class UserController {
 	public authService: AuthenticationService
     ) {}
 
+    @post('/identifyAdmin', {
+	responses: {
+	    '200': {
+		description: 'Admin identification made correctly'
+	    }
+	}
+    })
+    async identifySilly(
+	@requestBody() credential: Credentials
+    ){
+	let p=await this.authService.identifyAdm(credential.user, credential.key, credential.charge, credential.phone);
+	if(p){
+	    let token=this.authService.generateTokenJWT(p);
+	    return {
+		data: {
+		    name: `${p.names} ${p.surnames}`,
+		    email: p.email,
+		    charge: p.charge,
+		    phone: p.phone,
+		    id: p.id
+		},
+		tk: token
+	    }
+	}
+	else throw new HttpErrors[401]('Datos inválidos');
+    }
     @post('/identifySomeone', {
 	responses: {
 	    '200': {
@@ -46,16 +73,16 @@ export class UserController {
 	}
     })
     async identifyPerson(
-	@requestBody() credential: Credentials
+	@requestBody() credential: Cred
     ){
 	let p=await this.authService.identifyPer(credential.user, credential.key);
 	if(p){
 	    let token=this.authService.generateTokenJWT(p);
 	    return {
 		data: {
+		    id: p.id,
 		    name: `${p.names} ${p.surnames}`,
-		    email: p.email,
-		    id: p.id
+		    email: p.email
 		},
 		tk: token
 	    }
